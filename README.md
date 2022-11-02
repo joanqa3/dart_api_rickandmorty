@@ -4,7 +4,7 @@ Dart Simple API, para solo obtener resultados de los personajes y generar los mo
 
 ## PREVIEW
 
-![Dart simple respuesta](./assets/preview/pw_00.jpg)
+![Dart simple respuesta](./assets/preview/pw_01.jpg)
 
 ## COVER
 

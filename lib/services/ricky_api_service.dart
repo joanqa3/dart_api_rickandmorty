@@ -12,8 +12,6 @@ import '../models/episodio_model.dart';
 class RickyApiService {
   EpisodioModel episodioModel = EpisodioModel();
 
-  CharacterModel characterModel = CharacterModel();
-
   void getRickyEpisodes() {
     var url = Uri.parse("https://rickandmortyapi.com/api/episode");
     //print(url);
@@ -34,8 +32,10 @@ class RickyApiService {
       print(
           "=== EXTRACCIÓN DE DATOS =========================================");
 
-      //print(personaje.results?[0].name);
+      print("PRIMER PERSONAJE : ");
+      print(personaje.results?[0].name);
 
+      print("IMPRIMIR NOMBRES PERSONAJES DE CADA : ");
       for (var i = 0; i < personaje.results!.length; i++) {
         if (personaje.results?[i] != null) {
           print(
@@ -48,6 +48,8 @@ class RickyApiService {
       print(err);
     });
   }
+
+  CharacterModel characterModel = CharacterModel();
 
   void getRickyCharacters() {
     var url = Uri.parse("https://rickandmortyapi.com/api/character");
