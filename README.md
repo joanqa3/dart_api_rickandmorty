@@ -1,6 +1,6 @@
 ## DESCRIPCIÓN
 
-Dart Simple API, para solo obtener resultados de los personajes y generar los modelos correspondientes a partir del enlace especificado + inicio API de https://rickandmortyapi.com/api/character
+Dart Simple API, para solo obtener resultados de los personajes y generar los modelos correspondientes a partir del enlace especificado + inicio API de https://rickandmortyapi.com/api/episode
 
 ## PREVIEW
 

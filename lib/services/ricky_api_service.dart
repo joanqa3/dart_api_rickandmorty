@@ -25,21 +25,22 @@ class RickyApiService {
 
       print(
           "=== VALIDACIÓN ES INSTANCIA =========================================");
-      EpisodioModel personaje = new EpisodioModel.fromJson(bodyDecoded);
-      print(personaje.info);
-      print(personaje.results);
+      //EpisodioModel episodiox = new EpisodioModel.fromJson(bodyDecoded);
+      EpisodioModel episodiox = EpisodioModel.fromJson(bodyDecoded);
+      print(episodiox.info);
+      print(episodiox.results);
 
       print(
           "=== EXTRACCIÓN DE DATOS =========================================");
 
       print("PRIMER PERSONAJE : ");
-      print(personaje.results?[0].name);
+      print(episodiox.results?[0].name);
 
       print("IMPRIMIR NOMBRES PERSONAJES DE CADA : ");
-      for (var i = 0; i < personaje.results!.length; i++) {
-        if (personaje.results?[i] != null) {
+      for (var i = 0; i < episodiox.results!.length; i++) {
+        if (episodiox.results?[i] != null) {
           print(
-              "Nombre: ${personaje.results?[i].name} | episode: ${personaje.results?[i].episode}");
+              "Nombre: ${episodiox.results?[i].name} | episode: ${episodiox.results?[i].episode}");
         }
       }
 
