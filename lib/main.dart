@@ -12,7 +12,9 @@ void main(List<String> arguments) async {
 
   print('======================== MAIN IN ========================');
 
-  RickyApiService().getRickyCharacters();
+  // RickyApiService().getRickyCharacters();
+
+  RickyApiService().getRickyEpisodes();
 
   print('======================== MAIN OUT ========================');
 }

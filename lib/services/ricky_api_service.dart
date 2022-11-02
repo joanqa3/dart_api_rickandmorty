@@ -4,19 +4,50 @@ import 'package:http/http.dart' as http;
 import 'dart:async' show Future;
 
 import '../models/character_model.dart';
+import '../models/episodio_model.dart';
 
+// https://rickandmortyapi.com/api/episode
 // https://rickandmortyapi.com/api/character
 
 class RickyApiService {
-/*
-  Future<List<Articles>?> getTipoGet() async {
-    Response response = await get('https://rickandmortyapi.com/api/character');
-    Map data = jsonDecode(response.body);
-    print(data);
-  }
-*/
+  EpisodioModel episodioModel = EpisodioModel();
 
   CharacterModel characterModel = CharacterModel();
+
+  void getRickyEpisodes() {
+    var url = Uri.parse("https://rickandmortyapi.com/api/episode");
+    //print(url);
+    http.get(url).then((response) {
+      print("=== RESPUESTA DEL BODY =========================================");
+      print(response.body);
+      print(
+          "=== DECODIFICANDO DEL BODY =========================================");
+      Map<String, dynamic> bodyDecoded = convert.jsonDecode(response.body);
+      print(bodyDecoded);
+
+      print(
+          "=== VALIDACIÓN ES INSTANCIA =========================================");
+      CharacterModel personaje = new CharacterModel.fromJson(bodyDecoded);
+      print(personaje.info);
+      print(personaje.results);
+
+      print(
+          "=== EXTRACCIÓN DE DATOS =========================================");
+
+      print(personaje.results?[0].name);
+
+      for (var i = 0; i < personaje.results!.length; i++) {
+        if (personaje.results?[i] != null) {
+          print(
+              "Nombre: ${personaje.results?[i].name} | Status: ${personaje.results?[i].status} | Status: ${personaje.results?[i].species}");
+        }
+      }
+
+      print("=== FIN ;) =========================================");
+    }).catchError((err) {
+      print(err);
+    });
+  }
 
   void getRickyCharacters() {
     var url = Uri.parse("https://rickandmortyapi.com/api/character");
@@ -86,4 +117,13 @@ class RickyApiService {
       print(err);
     });
   }
+
+/*
+  Future<List<Articles>?> getTipoGet() async {
+    Response response = await get('https://rickandmortyapi.com/api/character');
+    Map data = jsonDecode(response.body);
+    print(data);
+  }
+*/
+
 }
