@@ -27,19 +27,19 @@ class RickyApiService {
 
       print(
           "=== VALIDACIÓN ES INSTANCIA =========================================");
-      CharacterModel personaje = new CharacterModel.fromJson(bodyDecoded);
+      EpisodioModel personaje = new EpisodioModel.fromJson(bodyDecoded);
       print(personaje.info);
       print(personaje.results);
 
       print(
           "=== EXTRACCIÓN DE DATOS =========================================");
 
-      print(personaje.results?[0].name);
+      //print(personaje.results?[0].name);
 
       for (var i = 0; i < personaje.results!.length; i++) {
         if (personaje.results?[i] != null) {
           print(
-              "Nombre: ${personaje.results?[i].name} | Status: ${personaje.results?[i].status} | Status: ${personaje.results?[i].species}");
+              "Nombre: ${personaje.results?[i].name} | episode: ${personaje.results?[i].episode}");
         }
       }
 
